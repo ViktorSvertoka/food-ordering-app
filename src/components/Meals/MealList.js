@@ -16,7 +16,7 @@ const MealList = () => {
       );
 
       if (!response.ok) {
-        throw new Error('Что-то пошло не так');
+        throw new Error('Щось пішло не так');
       }
 
       const responseData = await response.json();
@@ -45,7 +45,7 @@ const MealList = () => {
   if (isLoading) {
     return (
       <section className={styles.loading}>
-        <p>Извлечение данных с сервера...</p>
+        <p>Вилучення даних із сервера...</p>
       </section>
     );
   }
