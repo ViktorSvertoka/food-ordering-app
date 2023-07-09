@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import CartContext from "../../store/cart-context";
-import CartIcon from "../Cart/CartIcon";
-import styles from "./HeaderCartButton.module.css";
+import { useContext, useEffect, useState } from 'react';
+import CartContext from '../../store/cart-context';
+import CartIcon from '../Cart/CartIcon';
+import styles from './HeaderCartButton.module.css';
 
-const HeaderCartButton = (props) => {
+const HeaderCartButton = props => {
   const [isButtonAnimated, setIsButtonAnimated] = useState(false);
   const cartContext = useContext(CartContext);
 
@@ -12,7 +12,7 @@ const HeaderCartButton = (props) => {
   }, 0);
 
   const buttonClasses = `${styles.button} ${
-    isButtonAnimated ? styles.bump : ""
+    isButtonAnimated ? styles.bump : ''
   }`;
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const HeaderCartButton = (props) => {
       <span className={styles.icon}>
         <CartIcon />
       </span>
-      <span>Корзина</span>
+      <span>Кошик</span>
       <span className={styles.badge}>{cartItemsNumber}</span>
     </button>
   );
