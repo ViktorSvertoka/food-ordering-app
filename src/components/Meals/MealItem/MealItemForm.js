@@ -1,13 +1,13 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
-import Input from "../../UI/Input";
-import styles from "./MealItemForm.module.css";
+import Input from '../../UI/Input';
+import styles from './MealItemForm.module.css';
 
-const MealItemForm = (props) => {
+const MealItemForm = props => {
   const [isAmountValid, setIsAmountValid] = useState(true);
   const amountInputRef = useRef();
 
-  const submitHandler = (event) => {
+  const submitHandler = event => {
     event.preventDefault();
 
     const inputAmount = amountInputRef.current.value;
@@ -27,17 +27,17 @@ const MealItemForm = (props) => {
     <form className={styles.form} onSubmit={submitHandler}>
       <Input
         ref={amountInputRef}
-        label="Количество"
+        label="Кількість"
         input={{
           id: props.id,
-          type: "number",
-          min: "1",
-          step: "1",
-          defaultValue: "1",
+          type: 'number',
+          min: '1',
+          step: '1',
+          defaultValue: '1',
         }}
       />
-      <button>Добавить</button>
-      {!isAmountValid && <p>Пожалуйста введите количество от 1 до 10</p>}
+      <button>Додати</button>
+      {!isAmountValid && <p>Будь ласка, введіть кількість від 1 до 10</p>}
     </form>
   );
 };
