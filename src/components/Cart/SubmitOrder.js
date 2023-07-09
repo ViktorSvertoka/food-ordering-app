@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
-import styles from "./SubmitOrder.module.css";
+import { useRef, useState } from 'react';
+import styles from './SubmitOrder.module.css';
 
-const isInputValid = (inputValue) => inputValue.trim() !== "";
+const isInputValid = inputValue => inputValue.trim() !== '';
 
-const SubmitOrder = (props) => {
+const SubmitOrder = props => {
   const [formValidity, setFormValidity] = useState({
     name: true,
     city: true,
@@ -14,7 +14,7 @@ const SubmitOrder = (props) => {
   const cityInputRef = useRef();
   const addressInputRef = useRef();
 
-  const confirmOrderHandler = (event) => {
+  const confirmOrderHandler = event => {
     event.preventDefault();
 
     const enteredName = nameInputRef.current.value;
@@ -47,36 +47,36 @@ const SubmitOrder = (props) => {
   };
 
   const nameInputClasses = `${styles.control} ${
-    formValidity.name ? "" : styles.invalid
+    formValidity.name ? '' : styles.invalid
   }`;
   const cityInputClasses = `${styles.control} ${
-    formValidity.city ? "" : styles.invalid
+    formValidity.city ? '' : styles.invalid
   }`;
   const addressInputClasses = `${styles.control} ${
-    formValidity.address ? "" : styles.invalid
+    formValidity.address ? '' : styles.invalid
   }`;
 
   return (
     <form className={styles.form} onSubmit={confirmOrderHandler}>
       <div className={nameInputClasses}>
-        <label htmlFor="name">Имя</label>
+        <label htmlFor="name">Ім'я</label>
         <input type="text" id="name" ref={nameInputRef} />
-        {!formValidity.name && <p>Пожалуйста введите имя</p>}
+        {!formValidity.name && <p>Будь ласка, введіть ім'я</p>}
       </div>
       <div className={cityInputClasses}>
-        <label htmlFor="city">Город</label>
+        <label htmlFor="city">Місто</label>
         <input type="text" id="city" ref={cityInputRef} />
-        {!formValidity.city && <p>Пожалуйста введите название города</p>}
+        {!formValidity.city && <p>Будь ласка, введіть назву міста</p>}
       </div>
       <div className={addressInputClasses}>
-        <label htmlFor="address">Адрес</label>
+        <label htmlFor="address">Адреса</label>
         <input type="text" id="address" ref={addressInputRef} />
-        {!formValidity.address && <p>Пожалуйста введите адрес</p>}
+        {!formValidity.address && <p>Будь ласка, введіть адресу</p>}
       </div>
       <div className={styles.actions}>
-        <button className={styles.submit}>Подтвердить Заказ</button>
+        <button className={styles.submit}>Підтвердити заказ</button>
         <button type="button" onClick={props.onCancel}>
-          Отменить
+          Скасувати
         </button>
       </div>
     </form>
