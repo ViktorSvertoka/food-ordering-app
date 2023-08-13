@@ -69,7 +69,7 @@ const Cart = props => {
       </button>
       {hasItems && (
         <button className={styles.button} onClick={orderHandler}>
-          Закрити
+          Замовити
         </button>
       )}
     </div>
